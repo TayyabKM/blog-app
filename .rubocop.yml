@@ -44,6 +44,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+  Style/EndOfLine:
+  EnforcedStyle: always_true
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
