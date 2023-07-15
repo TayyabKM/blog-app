@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   let(:user) { User.create(name: 'John Doe', posts_counter: 0, photo: 'photo.jpg') }
-  let(:post) { Post.create(title: 'Test Post', text: 'Lorem ipsum', author: user, likes_counter: 0, comments_counter: 0) }
-  let(:comment) { Comment.new(text: 'Test comment', post: post, author: user) }
+  let(:post) do
+    Post.create(title: 'Test Post', text: 'Lorem ipsum', author: user, likes_counter: 0, comments_counter: 0)
+  end
+  let(:comment) { Comment.new(text: 'Test comment', post:, author: user) }
 
   describe 'associations' do
     it 'belongs to a post' do

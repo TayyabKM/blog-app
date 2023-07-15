@@ -37,7 +37,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'validates numericality of posts_counter' do
-      user = described_class.new(name: 'John Doe', photo: 'Person Image', bio: 'I am a teacher', posts_counter: 'not a number')
+      user = described_class.new(name: 'John Doe', photo: 'Person Image', bio: 'I am a teacher',
+                                 posts_counter: 'not a number')
       expect(user.valid?).to be false
       user.posts_counter = -1
       expect(user.valid?).to be false
