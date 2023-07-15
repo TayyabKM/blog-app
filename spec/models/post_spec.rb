@@ -38,6 +38,12 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:likes_counter]).to include('must be greater than or equal to 0')
     end
 
+    it 'validates the maximum length of title' do
+      post = Post.new(title: 'A' * 251, text: 'This is the post body', author: @user)
+      expect(post).to be_invalid
+      expect(post.errors[:title]).to include('is too long (maximum is 250 characters)')
+    end
+
     it 'validates comments_counter as a non-negative integer' do
       post = Post.new(title: 'My Post', text: 'Post body', author: @user, comments_counter: -1)
       expect(post).to be_invalid
