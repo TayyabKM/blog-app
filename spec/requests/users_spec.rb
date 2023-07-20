@@ -17,4 +17,11 @@ RSpec.describe 'Users', type: :request do
       expect(response.body).to include('Placeholder text for all users')
     end
   end
+  describe 'GET /show' do
+    it 'returns a successful response' do
+      user = User.create(name: 'Test User', photo: 'test.jpg', bio: 'Test bio')
+      get user_path(user)
+      expect(response).to have_http_status(:success) # Test for the User#show action
+    end
+  end
 end

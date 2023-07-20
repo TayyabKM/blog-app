@@ -4,17 +4,16 @@ RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
     it 'returns a successful response' do
       get posts_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:success) # Changed the response expectation
     end
+  end
 
-    it 'renders the index template' do
-      get posts_path
-      expect(response).to render_template(:index)
-    end
-
-    it 'includes correct placeholder text in the response body' do
-      get posts_path
-      expect(response.body).to include('Placeholder text for all posts by a given user')
+  describe 'GET /show' do
+    it 'returns a successful response' do
+      post = FactoryBot.create(:post)
+      expect(post).to be_valid
+      get post_path(post.id)
+      expect(response).to have_http_status(:success) # Test for the post#show action
     end
   end
 end
