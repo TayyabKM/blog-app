@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # Placeholder action for all users page
   def index
     @users = User.distinct
+    @placeholder_text = 'Placeholder text for all users'
   end
 
   # Placeholder action for a single user page
@@ -11,11 +12,12 @@ class UsersController < ApplicationController
 
   # Placeholder action for all posts by a given user
   def posts
-    # Your logic here
+    @user = User.find(params[:id])
+    @posts = @user.posts
   end
 
   # Placeholder action for a single post page for a given user
   def post_show
-    # Your logic here
+    @post = Post.find(params[:post_id])
   end
 end
