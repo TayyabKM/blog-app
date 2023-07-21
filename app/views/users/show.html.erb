@@ -1,2 +1,20 @@
 <h1><%= @user.name %></h1>
-<!-- Other user details -->
+<% if @user.photo.present? %>
+  <%= image_tag @user.photo %>
+<% else %>
+  <p>No photo available</p>
+<% end %>
+<p><%= @user.bio %></p>
+<p>Number of posts: <%= @user.posts.count %></p>
+
+<% @user.posts.each_with_index do |post, index| %>
+  <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
+  <p><%= post.content %></p>
+  <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+
+  <% post.comments.each do |comment| %>
+    <p>Username: <%= comment.author.name %></p>
+  <% end %>
+<% end %>
+
+<%= link_to "View Posts", "/users/#{@user.id}/posts" %>

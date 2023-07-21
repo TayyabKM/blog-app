@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   validates :likes_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :comments_counter, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
+  accepts_nested_attributes_for :comments
+
   def recent_comments(limit = 5)
     comments.order(created_at: :desc).limit(limit)
   end

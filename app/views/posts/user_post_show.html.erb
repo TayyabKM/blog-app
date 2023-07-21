@@ -1,8 +1,7 @@
-<h1><%= @post.title %></h1>
-<p>By: <%= @post.author.name %></p>
+<h1>Post <%= @post.id %> by <%= @post.author.name %></h1>
 <p><%= @post.content %></p>
 <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
 
 <% @post.comments.each do |comment| %>
-  <p>Username: <%= comment.user.name %></p>
+  <p>Username: <%= comment.author.name %></p>
 <% end %>

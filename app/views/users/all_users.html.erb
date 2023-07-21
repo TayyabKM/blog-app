@@ -1,0 +1,13 @@
+<h1>All Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user_path(user) %>
+      <% if user.photo_url.present? %>
+        <%= image_tag user.photo_url, alt: "#{user.name}'s Photo" %>
+      <% else %>
+        <p>No photo available</p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,13 @@
+<% @user.posts.each_with_index do |post, index| %>
+    <h2>Post <%= index + 1 %> by <%= post.author.name %></h2>
+    <p><%= post.content %></p>
+    <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+
+    <% post.comments.each do |comment| %>
+      <p>Username: <%= comment.author.name %></p>
+    <% end %>
+
+    <%= link_to "View Post", post_path(post) %>
+  <% end %>
+
+  <%= will_paginate @posts %>
