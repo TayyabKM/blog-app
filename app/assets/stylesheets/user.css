@@ -3,56 +3,56 @@
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+}
 
-  /* Style for each user */
-  .user {
+/* Style for each user */
+.user {
     display: flex;
     align-items: center;
     gap: 20px;
     margin: 30px auto;
-  }
+}
 
-  /* Style for the user's photo */
-  .user-photo {
+/* Style for the user's photo */
+.user-photo {
     flex: 0 0 100px;
     min-width: 100px;
     min-height: 100px;
     overflow: hidden;
-  }
+}
 
-  .user-photo img {
+.user-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: all 300ms ease-in-out;
-  }
+}
 
-  .user-photo img:hover {
+.user-photo img:hover {
     transform: scale(1.1);
-  }
+}
 
-  /* Style for the user's details */
-  .user-details {
+/* Style for the user's details */
+.user-details {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-  }
+}
 
-  .user-details h2 {
+.user-details h2 {
     font-size: 32px;
     margin-bottom: 10px;
-  }
+}
 
-  .user-details span {
+.user-details span {
     font-weight: 500;
     font-size: 20px;
-  }
+}
 
-  .user-details a {
+.user-details a {
     display: none;
-  }
+}
 
-  /* Add a newline at the end of the file */
+/* Add a newline at the end of the file */
