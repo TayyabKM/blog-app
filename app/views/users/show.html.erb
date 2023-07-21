@@ -1,20 +1,80 @@
-<h1><%= @user.name %></h1>
-<% if @user.photo.present? %>
-  <%= image_tag @user.photo %>
-<% else %>
-  <p>No photo available</p>
-<% end %>
-<p><%= @user.bio %></p>
-<p>Number of posts: <%= @user.posts.count %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @user.name %></title>
+  <style>
+    h1 {
+      color: #333;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
 
-<% @user.posts.each_with_index do |post, index| %>
-  <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
-  <p><%= post.content %></p>
-  <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+    p {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
 
-  <% post.comments.each do |comment| %>
-    <p>Username: <%= comment.author.name %></p>
+    img {
+      max-width: 300px;
+      max-height: 300px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .post-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .post-container h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .post-container p {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .comments-list {
+      list-style: none;
+      margin-left: 20px;
+    }
+
+    .comments-list li {
+      margin-bottom: 5px;
+    }
+
+    .comments-list li span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= @user.name %></h1>
+  <% if @user.photo.present? %>
+    <%= image_tag @user.photo %>
+  <% else %>
+    <p>No photo available</p>
   <% end %>
-<% end %>
+  <p><%= @user.bio %></p>
+  <p>Number of posts: <%= @user.posts.count %></p>
 
-<%= link_to "View Posts", "/users/#{@user.id}/posts" %>
+  <% @user.posts.limit(3).each_with_index do |post, index| %>
+    <div class="post-container">
+      <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
+      <p><%= post.text %></p>
+      <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+
+      <h3>Recent Comments:</h3>
+      <ul class="comments-list">
+        <% post.recent_comments.each do |comment| %>
+          <li><span>Username: <%= comment.author.name %></span>, Comment: <%= comment.text %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</body>
+</html>

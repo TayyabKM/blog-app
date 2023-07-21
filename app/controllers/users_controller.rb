@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # Placeholder action for a single user page
   def show
     @user = User.find(params[:id])
+    @view_posts = params[:view_posts] == 'true'
   end
 
   # Placeholder action for all posts by a given user

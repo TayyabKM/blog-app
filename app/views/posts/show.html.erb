@@ -4,5 +4,5 @@
 <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
 
 <% @post.comments.each do |comment| %>
-  <p>Username: <%= comment.user.name %></p>
-<% end %>
+    <p>Username: <%= comment.author.name %></p>
+  <% end %>
