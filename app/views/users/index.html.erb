@@ -8,6 +8,8 @@
   <h1>All Users</h1>
   <p><%= @placeholder_text %></p>
   <ul class="users-list">
+  <h1 class='user-current'>Hello <%=current_user.name%></h1>
+  <div class='post-button'><%= link_to "Post", new_user_post_path(current_user, current_user.id), class: 'common-btn' %></div>
     <% @users.each do |user| %>
       <li class="user">
         <div class="user-photo">

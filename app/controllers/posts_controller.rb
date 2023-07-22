@@ -21,4 +21,25 @@ class PostsController < ApplicationController
     flash[:error] = 'Post not found'
     redirect_to posts_path
   end
+
+  def new
+    @post = current_user.posts.new
+  end
+
+  def create
+    @post = current_user.posts.new(post_params)
+    @post.author_id = current_user.id
+
+    if @post.save
+      redirect_to user_posts_path(current_user)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
