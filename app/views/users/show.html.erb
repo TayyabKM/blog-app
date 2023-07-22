@@ -2,55 +2,7 @@
 <html>
 <head>
   <title><%= @user.name %></title>
-  <style>
-    h1 {
-      color: #333;
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      color: #666;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    img {
-      max-width: 300px;
-      max-height: 300px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-
-    .post-container {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 20px;
-    }
-
-    .post-container h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .post-container p {
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
-
-    .comments-list {
-      list-style: none;
-      margin-left: 20px;
-    }
-
-    .comments-list li {
-      margin-bottom: 5px;
-    }
-
-    .comments-list li span {
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/users.css">
 </head>
 <body>
   <h1><%= @user.name %></h1>
@@ -76,5 +28,17 @@
       </ul>
     </div>
   <% end %>
+
+  <% @user.posts.limit(3).each_with_index do |post, index| %>
+    <div class="post-container">
+      <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
+      <p><%= post.text %></p>
+      <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+    </div>
+  <% end %>
+
+  <!-- "See All Posts" button linking to the user's posts index page -->
+  <%= link_to "See All Posts", all_posts_user_path(@user), class: "see-all-posts-button" %>
+
 </body>
 </html>

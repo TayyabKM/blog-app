@@ -2,72 +2,8 @@
 <html>
 <head>
   <title>All Posts</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-      font-family: sans-serif;
-    }
-
-    .posts-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-      margin: 30px auto;
-    }
-
-    .posts-list a {
-      color: black;
-      width: 85%;
-      padding: 20px;
-      margin: 30px auto;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-
-    .posts-list h3 {
-      margin-block: 10px;
-    }
-
-    .posts-list .user-count {
-      position: relative;
-      text-align: end;
-      justify-self: flex-end;
-      margin-block: 10px;
-    }
-
-    .posts-list ul {
-      color: black;
-      width: 85%;
-      padding: 20px;
-      margin-top: -16px;
-      margin-bottom: 20px;
-      margin-inline: auto;
-    }
-
-    .post-title {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-block: 25px;
-    }
-
-    .post-details {
-      display: flex;
-      flex-direction: column;
-      margin-inline: 5%;
-    }
-
-    .post-comments {
-      display: flex;
-      flex-direction: column;
-      margin: 20px 5%;
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="/assets/posts.css">
+  </head>
 <body>
   <div class="posts-list">
     <% @posts.each do |post| %>
@@ -90,7 +26,7 @@
         <div class="post-comments">
           <h3>Recent Comments:</h3>
           <ul>
-            <% post.recent_comments.each do |comment| %>
+            <% post.recent_comments.limit(5).each do |comment| %>
               <li>
                 <span>Username: <%= comment.author.name %></span>,
                 <span>Comment: <%= comment.text %></span>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show] do
     member do
-      get 'posts', to: 'users#posts'
+      get 'all_posts', to: 'users#posts'
     end
   end
 

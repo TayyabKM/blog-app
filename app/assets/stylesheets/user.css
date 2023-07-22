@@ -55,4 +55,72 @@
     display: none;
 }
 
-/* Add a newline at the end of the file */
+h1 {
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .post-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .post-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .post-container p {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .comments-list {
+    list-style: none;
+    margin-left: 20px;
+  }
+
+  .comments-list li {
+    margin-bottom: 5px;
+  }
+
+  .comments-list li span {
+    font-weight: bold;
+  }
+
+/* Style for the "See All Posts" button */
+.see-all-posts-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 200px;
+    padding: 10px ;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  /* Hover effect */
+  .see-all-posts-button:hover {
+    background-color: #0056b3;
+  }

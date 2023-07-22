@@ -1,17 +1,17 @@
 <% @user.posts.each_with_index do |post, index| %>
-  <div class="post-container">
-    <h2>Post <%= index + 1 %> by <%= post.author.name %></h2>
-    <p><%= post.content %></p>
-    <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+    <div class="post-container">
+      <h2>Post <%= index + 1 %> by <%= post.author.name %></h2>
+      <p><%= post.content %></p>
+      <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
 
-    <div class="comments-section">
-      <% post.comments.each do |comment| %>
-        <p>Username: <%= comment.author.name %></p>
-      <% end %>
+      <div class="comments-section">
+        <% @recent_comments[post.id].each do |comment| %>
+          <p>Username: <%= comment.author.name %></p>
+        <% end %>
+      </div>
+
+      <%= link_to "View Post", post_path(post), class: "view-post-link" %>
     </div>
+  <% end %>
 
-    <%= link_to "View Post", post_path(post), class: "view-post-link" %>
-  </div>
-<% end %>
-
-<%= will_paginate @posts %>
+  <%= will_paginate @posts %>
