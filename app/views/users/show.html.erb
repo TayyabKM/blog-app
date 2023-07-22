@@ -29,7 +29,7 @@
   <% @user.posts.limit(3).each_with_index do |post, index| %>
     <div class="post-container">
       <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
-      <p><%= post.content %></p>
+      <p><%= post.text %></p>
       <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
 
       <h3>Recent Comments:</h3>
@@ -42,7 +42,7 @@
   <% end %>
 
   <div class="see-all-posts-container">
-    <%= link_to "See All Posts", all_posts_user_path(@user), class: "see-all-posts-button" %>
+    <%= link_to "See All Posts", user_posts_path(@user), class: "see-all-posts-button" %>
   </div>
 </body>
 </html>

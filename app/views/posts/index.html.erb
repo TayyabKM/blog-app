@@ -9,7 +9,13 @@
     <% @posts.each do |post| %>
       <!-- Wrap the entire post content in a div with the 'post-container' class -->
       <div class="post-container">
-        <a href="<%= post_path(post) %>">
+        <% if @user.present? %>
+          <!-- Use the 'user_post_path' route for the post link when 'user_id' is present -->
+          <a href="<%= user_post_path(@user, post) %>">
+        <% else %>
+          <!-- Use the 'post_path' route for the post link when 'user_id' is not present -->
+          <a href="<%= post_path(post) %>">
+        <% end %>
           <div class="post-title">
             <h3><%= post.title %></h3>
             <div class="user-count">
@@ -18,7 +24,7 @@
             </div>
           </div>
           <div class="post-details">
-            <p><%= post.content %></p>
+            <p><%= post.text %></p>
             <% if post.author %>
               <p>Author: <%= post.author.name %></p>
             <% else %>
