@@ -5,11 +5,11 @@ class PostsController < ApplicationController
       # If 'user_id' is provided, display posts for that specific user
       @user = User.find(params[:user_id])
       @posts = @user.posts.paginate(page: params[:page], per_page: 10)
-      #@placeholder_text = "Placeholder text for all posts by #{user.name}"
+      # @placeholder_text = "Placeholder text for all posts by #{user.name}"
     else
       # If 'user_id' is not provided, display all posts
       @posts = Post.all.paginate(page: params[:page], per_page: 10)
-      #@placeholder_text = 'Placeholder text for all posts'
+      # @placeholder_text = 'Placeholder text for all posts'
     end
   end
 
