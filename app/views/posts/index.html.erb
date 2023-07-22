@@ -3,38 +3,41 @@
 <head>
   <title>All Posts</title>
   <link rel="stylesheet" href="/assets/posts.css">
-  </head>
+</head>
 <body>
   <div class="posts-list">
     <% @posts.each do |post| %>
-      <a href="<%= post_path(post) %>">
-        <div class="post-title">
-          <h3><%= post.title %></h3>
-          <div class="user-count">
-            <span>Comments: <%= post.comments.count %></span>
-            <span>Likes: <%= post.likes.count %></span>
+      <!-- Wrap the entire post content in a div with the 'post-container' class -->
+      <div class="post-container">
+        <a href="<%= post_path(post) %>">
+          <div class="post-title">
+            <h3><%= post.title %></h3>
+            <div class="user-count">
+              <span>Comments: <%= post.comments.count %></span>
+              <span>Likes: <%= post.likes.count %></span>
+            </div>
           </div>
-        </div>
-        <div class="post-details">
-          <p><%= post.content %></p>
-          <% if post.author %>
-            <p>Author: <%= post.author.name %></p>
-          <% else %>
-            <p>Author: Unknown</p>
-          <% end %>
-        </div>
-        <div class="post-comments">
-          <h3>Recent Comments:</h3>
-          <ul>
-            <% post.recent_comments.limit(5).each do |comment| %>
-              <li>
-                <span>Username: <%= comment.author.name %></span>,
-                <span>Comment: <%= comment.text %></span>
-              </li>
+          <div class="post-details">
+            <p><%= post.content %></p>
+            <% if post.author %>
+              <p>Author: <%= post.author.name %></p>
+            <% else %>
+              <p>Author: Unknown</p>
             <% end %>
-          </ul>
-        </div>
-      </a>
+          </div>
+          <div class="post-comments">
+            <h3>Recent Comments:</h3>
+            <ul>
+              <% post.recent_comments.limit(5).each do |comment| %>
+                <li>
+                  <span>Username: <%= comment.author.name %></span>,
+                  <span>Comment: <%= comment.text %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </a>
+      </div>
     <% end %>
   </div>
 </body>

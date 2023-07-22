@@ -1,0 +1,170 @@
+/* Styling for the user container */
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.user div {
+  width: 200px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.user img {
+  width: 200px;
+  min-height: 200px;
+  object-fit: cover;
+  transition: all 300ms ease-in-out;
+}
+
+.user img:hover {
+  transform: scale(1.1);
+}
+
+/* Styling for the user details container */
+.user-details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  min-width: 70%;
+  min-height: 200px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 2px solid #ccc;
+  position: relative;
+}
+
+.user-details h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Styling for the user bio container */
+.user-bio-container {
+  border: 2px solid #ccc;
+  padding: 10px;
+  max-width: 100%;
+  margin: 10px auto; /* Center the container */
+}
+
+/* Styling for the user bio */
+.user-bio {
+  margin: 0; /* Remove the margin from the user bio */
+  font-size: 18px; /* Adjust the font size as needed */
+}
+
+/* Styling for the user posts counter */
+.user-posts-counter {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right; /* Align the text to the right */
+  margin-top: auto; /* Push the counter to the bottom */
+}
+
+/* Styling for the post container */
+.post-container {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.post-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.post-container p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.post-container h3 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.post-container ul {
+  margin-left: 20px;
+}
+
+.post-container li {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* Center the "See All Posts" button */
+.see-all-posts-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style the button */
+.see-all-posts-button {
+  display: inline-block;
+  background-color: #3f414b;
+  color: #c9d8f5;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 300ms ease-in-out;
+}
+
+.see-all-posts-button:hover {
+  background-color: #c9d8f5;
+  color: #3f414b;
+  border: 2px solid #3f414b;
+  transform: scale(1.1);
+}
+
+.user-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+/* Styles for user image */
+.user-image {
+  width: 200px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.user-image img {
+  width: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  transition: all 300ms ease-in-out;
+}
+
+.user-image img:hover {
+  transform: scale(1.1);
+}
+
+/* Styles for user info */
+.user-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.user-details h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Styles for user posts counter */
+.user-posts-counter {
+  font-size: 20px;
+  font-weight: bold;
+}

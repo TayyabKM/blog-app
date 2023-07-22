@@ -1,7 +1,31 @@
-<% @user.posts.each_with_index do |post, index| %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @user.name %></title>
+  <link rel="stylesheet" href="/assets/users.css">
+</head>
+<body>
+  <div class="user-container">
+    <div class="user-image">
+      <% if @user.photo.present? %>
+        <%= image_tag @user.photo, alt: "Profile picture" %>
+      <% else %>
+        <p>No photo available</p>
+      <% end %>
+    </div>
+    <div class="user-details">
+      <h1><%= @user.name %></h1>
+      <div class="user-posts-counter">
+        <p>Number of posts: <%= @user.posts.count %></p>
+      </div>
+    </div>
+  </div>
+
+  <% @user.posts.each_with_index do |post, index| %>
     <div class="post-container">
       <h2>Post <%= index + 1 %> by <%= post.author.name %></h2>
-      <p><%= post.content %></p>
+      <p><%= post.text %></p>
       <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
 
       <div class="comments-section">
@@ -15,3 +39,5 @@
   <% end %>
 
   <%= will_paginate @posts %>
+</body>
+</html>
