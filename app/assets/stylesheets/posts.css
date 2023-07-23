@@ -1,0 +1,94 @@
+/* posts.css */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.posts-list a {
+  color: black;
+  width: 85%;
+  padding: 20px;
+  margin: 30px auto;
+  border: 1px solid #ccc;
+}
+
+.posts-list h3 {
+  margin-block: 10px;
+}
+
+.posts-list .user-count {
+  position: relative;
+  text-align: end;
+  justify-self: flex-end;
+  margin-block: 10px;
+}
+
+.posts-list ul {
+  color: black;
+  width: 85%;
+  padding: 20px;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  margin-inline: auto;
+}
+
+.post-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-block: 25px;
+}
+
+.post-details-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.comments-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 5%;
+}
+
+.post-comments {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 5%;
+}
+
+.post-create {
+  margin-top: 20px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.like {
+  margin: 15px;
+}
+
+.post-create {
+  margin-top: 20px;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.like {
+  margin: 15px;
+}

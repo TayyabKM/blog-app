@@ -1,0 +1,6 @@
+<h3 class="post-create">New Post</h3>
+<%= form_with model: @post, url: user_posts_path(current_user, current_user.id) do |form| %>
+  <%= form.text_field :title, placeholder: 'Post title', required: true, autofocus: true %>
+  <%= form.text_area :text, placeholder: 'Your post', required: true, autofocus: true, size: "25x5" %>
+  <%= form.submit "Save" %>
+<% end %>

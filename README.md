@@ -66,7 +66,7 @@ Clone this repository to your desired folder:
 
 - Use the following Commands:
       https://github.com/Rana-Mudassir/blog-app.git
-      cd ruby-capstone    
+      cd ruby-capstone
 
 
 ### Usage
@@ -78,13 +78,13 @@ Clone this repository to your desired folder:
 - Run the following script and style test:
 
       -rspec spec ./name_of_file_spec.rb
-      
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## 👥 Authors <a name="authors"></a>
-￼ 
+￼
 👤 **TayyabKM**
 
 - Github: [@TayyabKM](https://github.com/Tayyab-Kamboh)
@@ -111,7 +111,7 @@ Feel free to check the [issues page](https://github.com/Rana-Mudassir/blog-app/i
 
 ## ⭐️ Show your support <a name="support"></a>
 
- 
+
   If you like this project, give it a star and share it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -139,6 +139,6 @@ Feel free to check the [issues page](https://github.com/Rana-Mudassir/blog-app/i
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Rana-Mudassir/blog-app/blob/dev/LICENSE) licensed.
+This project is [MIT](https://github.com/TayyabKM/blog-app/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Post <%= @post.id %> by <%= @post.author.name %></title>
+  <link rel="stylesheet" href="/assets/users.css">
+</head>
+<body>
+  <!-- Post details container -->
+  <div class="post-details-container">
+    <h1>Post <%= @post.id %> by <%= @post.author.name %></h1>
+    <p><%= @post.content %></p>
+    <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
+  </div>
+
+  <!-- Comments container -->
+  <div class="comments-container">
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <p>Username: <%= comment.author.name %></p>
+        <p>Comment: <%= comment.content %></p>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

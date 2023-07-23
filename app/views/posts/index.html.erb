@@ -1,7 +1,50 @@
-<h1>All Posts</h1>
-<p><%= @placeholder_text %></p>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post) %></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Posts</title>
+  <link rel="stylesheet" href="/assets/posts.css">
+</head>
+<body>
+  <div class="posts-list">
+    <% @posts.each do |post| %>
+      <!-- Wrap the entire post content in a div with the 'post-container' class -->
+      <div class="post-container">
+        <% if @user.present? %>
+          <!-- Use the 'user_post_path' route for the post link when 'user_id' is present -->
+          <a href="<%= user_post_path(@user, post) %>">
+        <% else %>
+          <!-- Use the 'post_path' route for the post link when 'user_id' is not present -->
+          <a href="<%= post_path(post) %>">
+        <% end %>
+          <div class="post-title">
+            <h3><%= post.title %></h3>
+            <div class="user-count">
+              <span>Comments: <%= post.comments.count %></span>
+              <span>Likes: <%= post.likes.count %></span>
+            </div>
+          </div>
+          <div class="post-details">
+            <p><%= post.text %></p>
+            <% if post.author %>
+              <p>Author: <%= post.author.name %></p>
+            <% else %>
+              <p>Author: Unknown</p>
+            <% end %>
+          </div>
+          <div class="post-comments">
+            <h3>Recent Comments:</h3>
+            <ul>
+              <% post.recent_comments.limit(5).each do |comment| %>
+                <li>
+                  <span>Username: <%= comment.author.name %></span>,
+                  <span>Comment: <%= comment.text %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
