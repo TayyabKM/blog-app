@@ -7,7 +7,7 @@ class PostsController < ApplicationController
       # @placeholder_text = "Placeholder text for all posts by #{user.name}"
     else
       # If 'user_id' is not provided, display all posts
-      @posts = Post.includes(:user, :comments, :likes, :author).paginate(page: params[:page], per_page: 10)
+      @posts = Post.includes(:user, :comments, :likes, :user).paginate(page: params[:page], per_page: 10)
       # @placeholder_text = 'Placeholder text for all posts'
     end
   end

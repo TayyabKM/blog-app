@@ -18,10 +18,15 @@ RSpec.describe 'Users', type: :request do
     end
   end
   describe 'GET /show' do
-    it 'returns a successful response' do
-      user = User.create(name: 'Test User', photo: 'test.jpg', bio: 'Test bio')
+    it "returns a successful response" do
+      user = FactoryBot.create(:user, photo: "https://fastly.picsum.photos/id/480/200/300.jpg?hmac=-NCJbhpqFCFd17uR0DXt17Ccp5H073pZLLaStM6erZg")
+
       get user_path(user)
-      expect(response).to have_http_status(:success) # Test for the User#show action
+
+      expect(response).to have_http_status(:ok)
+
+      # Use Capybara to parse the response body and check for the image tag
+      expect(Capybara.string(response.body)).to have_selector("img[src='#{user.photo}'][alt='Profile picture']")
     end
   end
 end

@@ -12,7 +12,7 @@
 .user div {
   width: 200px;
   min-height: 200px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .user img {

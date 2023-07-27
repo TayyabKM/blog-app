@@ -1,17 +1,17 @@
 <h1><%= @post.title %></h1>
-<p>By: <%= @post.author.name %></p>
+<p>By: <%= @post.user.name %></p>
 <p><%= @post.text %></p>
 <p>Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
 
 <div class="comment">
-    <%= form_with(model: Comment.new, url: user_post_comments_path(@post.author, @post)) do |form| %>
+    <%= form_with(model: Comment.new, url: user_post_comments_path(@post.user, @post)) do |form| %>
       <%= form.text_area :text, placeholder: 'Enter your comment', rows: 4 %>
       <%= form.submit 'Add Comment' %>
     <% end %>
   </div>
 
   <div class="like">
-    <%= form_with(model: Like.new, url: user_post_likes_path(@post.author, @post)) do |form| %>
+    <%= form_with(model: Like.new, url: user_post_likes_path(@post.user, @post)) do |form| %>
       <%= form.submit 'Like' %>
     <% end %>
   </div>

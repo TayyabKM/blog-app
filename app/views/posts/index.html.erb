@@ -25,10 +25,10 @@
           </div>
           <div class="post-details">
             <p><%= post.text %></p>
-            <% if post.author %>
-              <p>Author: <%= post.author.name %></p>
+            <% if post.user %>
+              <p>Authos: <%= post.user.name %></p>
             <% else %>
-              <p>Author: Unknown</p>
+              <p>user: Unknown</p>
             <% end %>
           </div>
           <div class="post-comments">
