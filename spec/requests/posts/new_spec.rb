@@ -21,8 +21,3 @@ RSpec.describe 'New Post Form', type: :feature do
     expect(page).to have_content('Likes: 0')
   end
 end
-
-
-
-
-

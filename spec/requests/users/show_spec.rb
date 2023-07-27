@@ -42,8 +42,8 @@ RSpec.describe 'show', type: :feature, js: false do
       expect(page).to have_content('Hey there! I am a passionate man in my 30s who finds joy in hiking, working')
     end
 
-      it 'should have a button to see all posts' do
-        expect(page).to have_link('See All Posts', href: user_posts_path(user))
-      end
+    it 'should have a button to see all posts' do
+      expect(page).to have_link('See All Posts', href: user_posts_path(user))
+    end
   end
 end

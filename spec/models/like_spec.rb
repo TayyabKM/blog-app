@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   let(:user) { User.create(name: 'John Doe', posts_counter: 0, photo: 'photo.jpg') }
   let(:post) do
-    Post.create(title: 'Test Post', text: 'Lorem ipsum', user: user, likes_counter: 0, comments_counter: 0)
+    Post.create(title: 'Test Post', text: 'Lorem ipsum', user:, likes_counter: 0, comments_counter: 0)
   end
-  let(:like) { Like.new(user: user, post: post) }
+  let(:like) { Like.new(user:, post:) }
 
   describe 'associations' do
     it 'belongs to a user' do

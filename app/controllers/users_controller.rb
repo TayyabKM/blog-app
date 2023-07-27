@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # Placeholder action for all users page
   def index
     @users = User.distinct
-    @placeholder_text = "Placeholder text for all users"
+    @placeholder_text = 'Placeholder text for all users'
   end
 
   # Placeholder action for a single user page

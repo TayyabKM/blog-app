@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   describe 'associations' do
-    it "belongs to a user" do
+    it 'belongs to a user' do
       association = Post.reflect_on_association(:user)
       expect(association.options[:foreign_key]).to eq('author_id')
     end
@@ -57,7 +57,8 @@ RSpec.describe Post, type: :model do
   describe 'recent_comments' do
     before(:example) do
       @user = User.create(name: 'John Doe', photo: 'Person Image', bio: 'I am a teacher', posts_counter: 0)
-      @post = Post.create(title: 'My post', text: 'Post body', author_id: @user.id, comments_counter: 0, likes_counter: 0)
+      @post = Post.create(title: 'My post', text: 'Post body', author_id: @user.id, comments_counter: 0,
+                          likes_counter: 0)
     end
 
     let!(:comment1) do
@@ -84,7 +85,8 @@ RSpec.describe Post, type: :model do
   describe '#update_post_counter' do
     before(:example) do
       @user = User.create(name: 'John Doe', photo: 'Person Image', bio: 'I am a teacher', posts_counter: 0)
-      @post = Post.create(title: 'My post', text: 'Post body', author_id: @user.id, comments_counter: 0, likes_counter: 0)
+      @post = Post.create(title: 'My post', text: 'Post body', author_id: @user.id, comments_counter: 0,
+                          likes_counter: 0)
     end
 
     it 'increments the author\'s posts_counter' do
