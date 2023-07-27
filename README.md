@@ -91,6 +91,12 @@ Clone this repository to your desired folder:
 - Twitter: [@TayyabI83126361](https://twitter.com/TayyabI83126361)
 - Linkedin: [@tayyab-irfan-01b72b1aa](https://www.linkedin.com/in/tayyab-irfan-01b72b1aa/)
 
+  👤 **Abdel-Khafid SALAOU**
+
+- GitHub: [@githubhandle](https://github.com/adeola003)
+- Twitter: [@twitterhandle](https://twitter.com/khadaf6)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
