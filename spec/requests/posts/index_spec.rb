@@ -34,7 +34,7 @@ RSpec.describe 'User profile page', type: :feature do
     @user.posts.each do |post|
       expect(page).to have_selector('.post-container', text: post.text)
       within('.post-container', text: post.text) do
-        expect(page).to have_selector("h2")
+        expect(page).to have_selector('h2')
         expect(page).to have_content(post.text)
         expect(page).to have_content(post.text)
         expect(page).to have_content("Comments: #{post.comments.count}, Likes: #{post.likes.count}")
