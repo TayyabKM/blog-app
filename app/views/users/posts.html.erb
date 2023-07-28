@@ -24,13 +24,13 @@
 
   <% @user.posts.each_with_index do |post, index| %>
     <div class="post-container">
-      <h2>Post <%= index + 1 %> by <%= post.author.name %></h2>
+      <h2>Post <%= index + 1 %> by <%= post.user.name %></h2>
       <p><%= post.text %></p>
       <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
 
       <div class="comments-section">
         <% @recent_comments[post.id].each do |comment| %>
-          <p>Username: <%= comment.author.name %></p>
+          <p>Username: <%= comment.user.name %></p>
         <% end %>
       </div>
 

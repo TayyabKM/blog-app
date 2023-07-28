@@ -246,7 +246,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  capybara
+  capybara (~> 3.35, >= 3.35.3)
   debug
   factory_bot_rails
   faker

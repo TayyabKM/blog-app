@@ -28,16 +28,19 @@
 
   <% @user.posts.limit(3).each_with_index do |post, index| %>
     <div class="post-container">
-      <h2>Post #<%= index + 1 %> by <%= post.author.name %></h2>
-      <p><%= post.text %></p>
-      <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
+      <!-- New: Wrap post content in an anchor tag -->
+      <a href="<%= user_post_path(@user, post) %>">
+        <h2>Post #<%= index + 1 %> by <%= post.user.name %></h2>
+        <p><%= post.text %></p>
+        <p>Comments: <%= post.comments.count %>, Likes: <%= post.likes.count %></p>
 
-      <h3>Recent Comments:</h3>
-      <ul class="comments-list">
-        <% post.recent_comments.each do |comment| %>
-          <li><span>Username: <%= comment.author.name %></span>, Comment: <%= comment.text %></li> <!-- Change 'comment.content' to 'comment.text' -->
-        <% end %>
-      </ul>
+        <h3>Recent Comments:</h3>
+        <ul class="comments-list">
+          <% post.recent_comments.each do |comment| %>
+            <li><span>Username: <%= comment.author.name %></span>, Comment: <%= comment.text %></li>
+          <% end %>
+        </ul>
+      </a>
     </div>
   <% end %>
 
