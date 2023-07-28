@@ -1,24 +1,58 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-RSpec.describe 'Post index page', type: :request do
-  it 'displays the posts and their details' do
-    # Create a test user
-    user = User.create(name: 'John Doe', photo: 'valid_photo_url')
+RSpec.describe 'User profile page', type: :feature do
+  before do
+    @user = User.create(name: 'Thomas Heflord',
+                        photo: 'https://media.istockphoto.com/id/1289461328/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=y_mzB0Tbe5LErNy6pqfY7sz2HiDT7fOAUCwupN3-Bg4=',
+                        posts_counter: 5)
+    @posts = [
+      Post.create(user: @user, title: 'Morality',
+                  text: 'Strive for Personal Growth: Embrace personal growth and strive to become the best',
+                  comments: []),
+      Post.create(user: @user, title: 'Post 2 ',
+                  text: 'Sample text',
+                  comments: []),
+      Post.create(user: @user, title: 'Post 3',
+                  text: 'Practice integrity and honesty in your words and actions. Be true to your principles and',
+                  comments: []),
+      Post.create(user: @user, title: 'Post 4',
+                  text: 'Sample text',
+                  comments: []),
+      Post.create(user: @user, title: 'Post 5',
+                  text: 'Sample text',
+                  comments: [])
+    ]
+  end
+  it 'displays the user profile information and posts' do
+    visit user_path(@user)
 
-    # Create some test posts associated with the user
-    post1 = Post.create(user:, title: 'Post 1', text: 'Content of Post 1')
-    post2 = Post.create(user:, title: 'Post 2', text: 'Content of Post 2')
+    expect(page).to have_content(@user.name)
+    expect(page).to have_selector('img[src="https://media.istockphoto.com/id/1289461328/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=y_mzB0Tbe5LErNy6pqfY7sz2HiDT7fOAUCwupN3-Bg4="]')
+    expect(page).to have_content('Number of posts: 5')
 
-    # Visit the index page for all posts associated with the user
-    visit user_posts_path(user)
+    @user.posts.each do |post|
+      expect(page).to have_selector('.post-container', text: post.text)
+      within('.post-container', text: post.text) do
+        expect(page).to have_content(post.text)
+        expect(page).to have_content(post.text)
+        expect(page).to have_content("Comments: #{post.comments.count}, Likes: #{post.likes.count}")
 
-    # Now you can add your expectations based on the content you expect to see on the page
-    expect(page).to have_content(post1.title)
-    expect(page).to have_content(post2.title)
+        post.comments.each do |comment|
+          expect(page).to have_content("Username: #{comment.author.name}, Comment: #{comment.text}")
+        end
+      end
+    end
+  end
 
-    # Assert that the page contains the content of the posts
-    expect(page).to have_content(post1.text)
-    expect(page).to have_content(post2.text)
+  it 'redirects to the post\'s show page when you click on a post' do
+    # Visit the user's profile page
+    visit user_path(@user)
+
+    # Click on the first post link
+    first('.post-container').click_link
+
+    # Expect to be redirected to the post's show page
+    expect(page).to have_current_path(user_post_path(@user, @posts.first))
   end
 end
