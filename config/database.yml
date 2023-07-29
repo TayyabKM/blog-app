@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: blog_app
+  database: blog-app
   username: Tayyab
   password: fuckoff112$
   local: localhost
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blog_app
+  database: blog-app
   username: Tayyab
   password: fuckoff112$
   local: localhost
@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: blog_app
+  database: blog-app
   username: Tayyab
   password: fuckoff112$
