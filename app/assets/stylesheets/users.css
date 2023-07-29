@@ -196,6 +196,16 @@ input {
   margin-left: 10px ;
 }
 
+.checkbox input,
+.buttons {
+  width: 30px;
+}
+
+.shared {
+  text-align: center;
+  margin: 19px auto;
+}
+
 /* Optional: Add hover effect to the button */
 .common-btn:hover {
   background-color: #0056b3; /* Darker shade of blue on hover */
