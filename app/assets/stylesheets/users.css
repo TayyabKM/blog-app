@@ -179,6 +179,7 @@ form {
 
 input {
   padding: 10px;
+  width: 400px;
 }
 
 /* Styles for the "Post" button */
@@ -193,6 +194,16 @@ input {
   cursor: pointer;
   margin-top: 10px;
   margin-left: 10px ;
+}
+
+.checkbox input,
+.buttons {
+  width: 30px;
+}
+
+.shared {
+  text-align: center;
+  margin: 19px auto;
 }
 
 /* Optional: Add hover effect to the button */

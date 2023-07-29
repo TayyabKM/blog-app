@@ -1,3 +1,4 @@
+<%= button_to "Logout", destroy_user_session_path, method: :delete %>
 <h1>All Users</h1>
 <ul>
   <% @users.each do |user| %>
